@@ -46,9 +46,22 @@ if exists("g:tiddlywiki_autoupdate")
   augroup END
 endif
 
+" 获得 [[]] 里面的内容，然后用 ctrlp
+" 打开这个文件，或者说，就打开当前目录下这个文件
+function! <SID>JumpToTiddler()
+ let wordUnderCursor = expand("<cword>")
+ let currentLine   = getline(".") 
+endfunction
+
 if !exists("g:tiddlywiki_no_mappings")
   nmap <Leader>tm :call <SID>UpdateModifiedTime()<Cr>
   nmap <Leader>tt :call <SID>InitializeTemplate()<Cr>
+  " go right after the [ and select to the closest ] and jump
+  " and open in new tab
+  nmap <buffer> gf T[vt]<C-W>gf
 endif
 
 let &cpo = s:save_cpo
+" :set includeexpr=v:fname.'.tid'
+" setup tid file
+autocmd BufNewFile,BufRead *.tid set includeexpr=v:fname.'.tid'
