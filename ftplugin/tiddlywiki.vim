@@ -12,6 +12,10 @@ let b:did_ftplugin = 1
 let s:save_cpo = &cpo
 set cpo-=C
 
+" :set includeexpr=v:fname.'.tid'
+" setup tid file
+autocmd BufNewFile,BufRead *.tid set includeexpr=v:fname.'.tid'
+
 function! TiddlyWikiTime()
   return system("date -u +'%Y%m%d%H%M%S'")[:-2] . "000"
 endfunction
@@ -62,6 +66,3 @@ if !exists("g:tiddlywiki_no_mappings")
 endif
 
 let &cpo = s:save_cpo
-" :set includeexpr=v:fname.'.tid'
-" setup tid file
-autocmd BufNewFile,BufRead *.tid set includeexpr=v:fname.'.tid'

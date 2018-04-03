@@ -5,3 +5,11 @@ For people who like the TiddlyWiki formatting syntax.
 http://tiddlywiki.org/wiki/TiddlyWiki_Markup
 
 It has since been highly customized and updated.
+
+# Features
+
+* Tiddlywiki syntax highlighting
+* link jump support
+
+
+vim: ft=markdown 
